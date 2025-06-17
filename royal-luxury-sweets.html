@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXORÉ - Exklusive Premium Spirituosen</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            line-height: 1.6;
+            color: #fff;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .logo::before {
+            content: '♛ ';
+        }
+
+        .logo::after {
+            content: ' ♛';
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #f0f0f0;
+            font-style: italic;
+        }
+
+        .hero-year {
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            color: #000;
+            padding: 1.5rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            margin: 1rem;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #d4af37;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #ccc;
+            font-style: italic;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            border: 2px solid #d4af37;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .product-crown {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #d4af37;
+        }
+
+        .product-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .product-description {
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .alcohol-info {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        /* Social Media */
+        .social-media {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: #0a0a0a;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #d4af37;
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        /* Forms */
+        .form-section {
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: #1a1a1a;
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid #d4af37;
+        }
+
+        .form-container h3 {
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .review-item {
+            background: #0a0a0a;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #d4af37;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            color: #e0e0e0;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #0a0a0a;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            color: #000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Partners */
+        .partners {
+            padding: 6rem 2rem;
+            background: #0a0a0a;
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .partner-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #d4af37;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .partner-card h4 {
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .partner-link {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .partner-link:hover {
+            color: #d4af37;
+        }
+
+        /* Legal */
+        .legal-section {
+            padding: 6rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #0a0a0a;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .legal-content {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .legal-content h3 {
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .legal-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #ccc;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 2px solid #d4af37;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+        .footer-warning {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        /* Page visibility */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .social-icons {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Luxoré</div>
+            <ul class="nav-links">
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('products')">Produkte</a></li>
+                <li><a onclick="showPage('feedback')">Kundenfeedback</a></li>
+                <li><a onclick="showPage('partners')">Partner</a></li>
+                <li><a onclick="showPage('contact')">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page-section active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Luxoré</h1>
+                <p class="hero-subtitle">Exklusive Premium-Spirituosen für wahre Kenner</p>
+                <p class="hero-year">Seit 2025</p>
+                <a class="cta-button" onclick="showPage('products')">Unsere Exklusive Kollektion</a>
+                <a class="cta-button" onclick="openDM()">Jetzt vorbestellen via DM</a>
+            </div>
+        </section>
+
+        <section class="social-media">
+            <div class="section-header">
+                <h2>Folgen Sie uns</h2>
+                <p class="section-subtitle">Entdecken Sie exklusive Einblicke in die Welt von Luxoré</p>
+            </div>
+            <div class="social-icons">
+                <a href="#" class="social-icon" title="Instagram">IG</a>
+                <a href="#" class="social-icon" title="Facebook">FB</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products" class="page-section">
+        <section class="products">
+            <div class="section-header">
+                <h2>Unsere Exklusive Kollektion</h2>
+                <p class="section-subtitle">Handverlesene Premium-Spirituosen in limitierter Auflage</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-crown">♛</div>
+                    <div class="product-icon">🥃</div>
+                    <h3>Luxoré Butterscotch</h3>
+                    <p class="product-description">
+                        Exklusiver Butterscotch-Likör aus feinster schottischer Butter und premium Whisky. 
+                        Handgefertigt nach königlichem Rezept mit 25% Alkohol. Ein cremiges Geschmackserlebnis 
+                        von unvergleichlicher Eleganz und zeitloser Raffinesse.
+                    </p>
+                    <div class="product-price">29,90 €</div>
+                    <div class="alcohol-info">
+                        <strong>25% vol. | 500ml | Nicht für Personen unter 18 Jahren</strong><br>
+                        Limitierte Auflage - Handgefertigt in Deutschland
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-crown">♛</div>
+                    <div class="product-icon">🍾</div>
+                    <h3>Secc au Chocolat</h3>
+                    <p class="product-description">
+                        Prickelnder Premium-Sekt verfeinert mit edelster belgischer Schokolade. 
+                        Eine außergewöhnliche Komposition aus französischem Champagner und handverlesenen 
+                        Kakaobohnen. 12% Alkohol für die besonderen Momente des Lebens.
+                    </p>
+                    <div class="product-price">19,90 €</div>
+                    <div class="alcohol-info">
+                        <strong>12% vol. | 750ml | Nicht für Personen unter 18 Jahren</strong><br>
+                        Limitierte Auflage - Exklusiv bei Luxoré
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a class="cta-button" onclick="openDM()">Jetzt vorbestellen via DM</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Feedback Page -->
+    <div id="feedback" class="page-section">
+        <section class="form-section">
+            <div class="section-header">
+                <h2>Kundenfeedback</h2>
+                <p class="section-subtitle">Teilen Sie Ihre Erfahrungen mit Luxoré</p>
+            </div>
+
+            <div class="form-container">
+                <h3>Ihr Feedback ist uns wichtig</h3>
+                
+                <div style="margin-bottom: 3rem;">
+                    <h4 style="color: #d4af37; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 2rem;">Kundenbewertungen</h4>
+                    
+                    <div class="review-item">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Absolut exquisit! Der Luxoré Butterscotch übertrifft alle Erwartungen. Ein wahrhaft königlicher Genuss für besondere Anlässe. Die Qualität und der Geschmack sind unvergleichlich."</p>
+                        <p class="reviewer">- Alexander M., München</p>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Der Secc au Chocolat ist eine Offenbarung! Die perfekte Balance zwischen prickelndem Sekt und edler Schokolade. Luxus pur in jeder Flasche. Absolute Kaufempfehlung!"</p>
+                        <p class="reviewer">- Isabella R., Hamburg</p>
+                    </div>
+                </div>
+                
+                <form onsubmit="submitFeedback(event)">
+                    <div class="form-group">
+                        <label>Ihr Name:</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-Mail-Adresse:</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Bewertung:</label>
+                        <select>
+                            <option>⭐⭐⭐⭐⭐ Ausgezeichnet</option>
+                            <option>⭐⭐⭐⭐ Sehr gut</option>
+                            <option>⭐⭐⭐ Gut</option>
+                            <option>⭐⭐ Befriedigend</option>
+                            <option>⭐ Verbesserungsbedürftig</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ihr Feedback:</label>
+                        <textarea rows="4" placeholder="Teilen Sie Ihre Erfahrungen mit uns..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Feedback senden</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Partners Page -->
+    <div id="partners" class="page-section">
+        <section class="partners">
+            <div class="section-header">
+                <h2>Entdecken Sie unsere anderen Unternehmen</h2>
+                <p class="section-subtitle">Unser vielfältiges Portfolio hochwertiger Marken</p>
+            </div>
+
+            <div class="partner-grid">
+                <div class="partner-card">
+                    <h4>Umbrella Woodworks</h4>
+                    <p>Premium Holzverarbeitung und maßgeschneiderte Möbel von höchster Qualität</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" class="partner-link">Instagram</a>
+                        <a href="#" class="partner-link">Facebook</a>
+                        <a href="#" class="partner-link">YouTube</a>
+                        <a href="#" class="partner-link">Homepage</a>
+                    </div>
+                </div>
+                <div class="partner-card">
+                    <h4>Umbrella Woodworks Digitale Medien</h4>
+                    <p>Professionelle digitale Lösungen und Mediendienstleistungen</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" class="partner-link">Instagram</a>
+                        <a href="#" class="partner-link">Facebook</a>
+                        <a href="#" class="partner-link">Homepage</a>
+                    </div>
+                </div>
+                <div class="partner-card">
+                    <h4>Umbrella Kreativshop</h4>
+                    <p>Einzigartige Kreativprodukte und handgefertigte Artikel</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" class="partner-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page-section">
+        <section class="form-section">
+            <div class="section-header">
+                <h2>Kontakt</h2>
+                <p class="section-subtitle">Haben Sie Fragen? Wir sind für Sie da</p>
+            </div>
+
+            <div class="form-container">
+                <h3>Kontaktieren Sie uns</h3>
+                <form onsubmit="submitContact(event)">
+                    <div class="form-group">
+                        <label>Ihr Name:</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-Mail-Adresse:</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Betreff:</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Ihre Nachricht:</label>
+                        <textarea rows="4" placeholder="Ihre Nachricht an uns..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Nachricht senden</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Legal Pages -->
+    <div id="impressum" class="page-section">
+        <section class="legal-section">
+            <h2 style="color: #d4af37; font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center; margin-bottom: 2rem;">Impressum</h2>
+            <div class="legal-content">
+                <h3>Angaben gemäß § 5 DDG</h3>
+                <p><strong>Stefan Korhammer</strong><br>
+                Sternberger Str. 3<br>
+                86690 Mertingen<br>
+                Deutschland</p>
+
+                <h3>Kontakt</h3>
+                <p>E-Mail: info@luxore.de<br>
+                Telefon: [Ihre Telefonnummer]</p>
+
+                <h3>Hinweise zum Jugendschutz</h3>
+                <p>Der Verkauf von alkoholischen Getränken ist nur an Personen ab 18 Jahren gestattet. Kein Versandhandel - nur Abholung vor Ort mit Altersverifikation.</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="datenschutz" class="page-section">
+        <section class="legal-section">
+            <h2 style="color: #d4af37; font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center; margin-bottom: 2rem;">Datenschutzerklärung</h2>
+            <div class="legal-content">
+                <h3>1. Datenschutz auf einen Blick</h3>
+                <p>Die folgenden Hinweise geben einen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+
+                <h3>2. Verantwortliche Stelle</h3>
+                <p>Stefan Korhammer<br>
+                Sternberger Str. 3<br>
+                86690 Mertingen<br>
+                E-Mail: info@luxore.de</p>
+
+                <h3>3. Ihre Rechte</h3>
+                <p>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung Ihrer personenbezogenen Daten.</p>
+
+                <h3>4. Besondere Hinweise</h3>
+                <p>Diese Website bewirbt alkoholische Getränke. Der Zugang ist nur Personen ab 18 Jahren gestattet.</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="agb" class="page-section">
+        <section class="legal-section">
+            <h2 style="color: #d4af37; font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center; margin-bottom: 2rem;">AGB</h2>
+            <div class="legal-content">
+                <h3>1. Geltungsbereich</h3>
+                <p>Diese AGB gelten für alle Verträge zwischen Stefan Korhammer und dem Kunden über die Abgabe von alkoholischen Getränken.</p>
+
+                <h3>2. Abholung</h3>
+                <p>Kein Versandhandel! Alle Waren müssen persönlich abgeholt werden. Bei alkoholischen Getränken erfolgt die Übergabe nur an Personen ab 18 Jahren.</p>
+
+                <h3>3. Jugendschutz</h3>
+                <p>Der Verkauf alkoholischer Getränke ist nur an Personen ab 18 Jahren gestattet. Bei der Abholung ist das Alter durch Ausweiskontrolle nachzuweisen.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">♛ Luxoré ♛</div>
+            <div class="footer-links">
+                <a onclick="showPage('impressum')">Impressum</a>
+                <a onclick="showPage('datenschutz')">Datenschutz</a>
+                <a onclick="showPage('agb')">AGB</a>
+            </div>
+            <p style="margin: 2rem 0;">&copy; 2025 Luxoré. Alle Rechte vorbehalten.</p>
+            
+            <div class="footer-warning">
+                <strong>⚠️ WICHTIGER HINWEIS ⚠️</strong><br><br>
+                <strong>Verantwortungsvoller Genuss von Alkohol</strong><br>
+                Der Verkauf erfolgt ausschließlich an Personen ab 18 Jahren.<br>
+                Bitte trinken Sie verantwortungsvoll und in Maßen.<br><br>
+                <em>Luxoré Premium-Spirituosen - Exklusivität seit 2025</em>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openDM() {
+            const choice = confirm("Möchten Sie uns über WhatsApp (OK) oder Instagram (Abbrechen) kontaktieren?");
+            
+            if (choice) {
+                alert("Bitte tragen Sie Ihre WhatsApp-Nummer in den Code ein.");
+            } else {
+                window.open("https://www.instagram.com/direct/new/", '_blank');
+            }
+        }
+
+        function submitFeedback(event) {
+            event.preventDefault();
+            alert('Vielen Dank für Ihr Feedback! Wir haben Ihre Nachricht erhalten.');
+            event.target.reset();
+        }
+
+        function submitContact(event) {
+            event.preventDefault();
+            alert('Vielen Dank für Ihre Nachricht! Wir werden uns schnellstmöglich bei Ihnen melden.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
